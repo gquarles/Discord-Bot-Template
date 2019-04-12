@@ -22,6 +22,8 @@ class Command:
         os.system('start cmd /c {}'.format(self.batch))  # Run command
         return self.output
 
+# Set the text channel for the bot
+channel = 'change-me'
 
 # Add commands below
 test = Command('!test', 'The command works!', 'test.bat')
@@ -33,7 +35,7 @@ async def on_message(message):
         return
 
     for command in commands:
-        if message.content == command.command:
+        if message.content == command.command and str(message.channel) == channel:
             msg = command.run()
             msg = msg.format(message)
             await client.send_message(message.channel, msg)
