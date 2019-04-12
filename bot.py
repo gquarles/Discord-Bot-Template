@@ -26,7 +26,7 @@ class Command:
 channel = 'change-me'
 
 # Add commands below
-test = Command('!test', 'The command works!', 'test.bat')
+Command('!test', 'The command works!', 'test.bat')
 
 
 @client.event
