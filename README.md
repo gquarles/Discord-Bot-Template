@@ -10,6 +10,7 @@
 ### Installation
 1. Clone the repo into a directory
 2. Edit token.json with your  bot token
+3. Change the bot.py file to add your commands and channel name
 
 ## Usage
 TODO
