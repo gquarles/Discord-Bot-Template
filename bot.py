@@ -12,8 +12,9 @@ commands = []  # Initialize commands
 
 
 class Command:
-    def __init__(self, command, output, batch):
+    def __init__(self, command, channel, output, batch):
         self.command = command
+        self.channel = channel
         self.output = output
         self.batch = batch
         commands.append(self)  # Add command to commands list
@@ -22,11 +23,9 @@ class Command:
         os.system('start cmd /c {}'.format(self.batch))  # Run command
         return self.output
 
-# Set the text channel for the bot
-channel = 'change-me'
 
 # Add commands below
-Command('!test', 'The command works!', 'test.bat')
+Command('!test', 'discord-channel', 'The command works!', 'test.bat')
 
 
 @client.event
@@ -35,7 +34,7 @@ async def on_message(message):
         return
 
     for command in commands:
-        if message.content == command.command and str(message.channel) == channel:
+        if message.content == command.command and str(message.channel) == command.channel:
             msg = command.run()
             msg = msg.format(message)
             await client.send_message(message.channel, msg)
