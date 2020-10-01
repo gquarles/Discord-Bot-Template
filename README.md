@@ -7,7 +7,7 @@
 ## Getting Started
 
 ### Prerequisites
-> Python 3.6.0
+> Python 3.6
 
 ### Installation
 1. Clone the repo into a directory
