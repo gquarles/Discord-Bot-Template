@@ -40,11 +40,13 @@ async def on_message(message):
             await client.send_message(message.channel, msg)
 
 
-@client.event
-async def on_ready():
+async def ready():
+    await client.wait_until_ready()
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
     print('------')
 
+
+client.loop.create_task(ready())
 client.run(TOKEN)
